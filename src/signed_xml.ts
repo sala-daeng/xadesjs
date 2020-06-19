@@ -169,7 +169,7 @@ export class SignedXml extends XmlDSigJs.SignedXml {
             const xadesRefHash = signingAlg.hash;
             const xadesRef = new XmlDSigJs.Reference();
             xadesRef.Type = XADES_REFERENCE_TYPE;
-            xadesRef.Uri = `#${this.Properties.SignedProperties.Id}`;
+            xadesRef.Uri = `#${this.Properties.SignedProperties.Id}-signedprops`;
             xadesRef.DigestMethod.Algorithm = XmlDSigJs.CryptoConfig.GetHashAlgorithm(xadesRefHash).namespaceURI;
 
             signature.SignedInfo.References.Add(xadesRef);
