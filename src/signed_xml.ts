@@ -141,7 +141,8 @@ export class SignedXml extends XmlDSigJs.SignedXml {
         this.XmlSignature.Id = `id-${id}`;
         const dataObject = new XAdES.DataObject();
         dataObject.QualifyingProperties.Target = `#${this.XmlSignature.Id}`;
-        dataObject.QualifyingProperties.SignedProperties.Id = `xades-${this.XmlSignature.Id}`;
+        // dataObject.QualifyingProperties.SignedProperties.Id = `xades-${this.XmlSignature.Id}`;
+        dataObject.QualifyingProperties.SignedProperties.Id = `xmldsig-${this.XmlSignature.Id}-signedprops`;
 
         this.properties = dataObject.QualifyingProperties;
         this.XmlSignature.ObjectList.Add(dataObject);
@@ -169,7 +170,7 @@ export class SignedXml extends XmlDSigJs.SignedXml {
             const xadesRefHash = signingAlg.hash;
             const xadesRef = new XmlDSigJs.Reference();
             xadesRef.Type = XADES_REFERENCE_TYPE;
-            xadesRef.Uri = `#${this.Properties.SignedProperties.Id}-signedprops`;
+            xadesRef.Uri = `#${this.Properties.SignedProperties.Id}`;
             xadesRef.DigestMethod.Algorithm = XmlDSigJs.CryptoConfig.GetHashAlgorithm(xadesRefHash).namespaceURI;
 
             signature.SignedInfo.References.Add(xadesRef);
