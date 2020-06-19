@@ -221,7 +221,7 @@ export class SignedXml extends XmlDSigJs.SignedXml {
                     policyId.SigPolicyId.DocumentationReferences = new XAdES.DocumentationReferences();
                     options.identifier.references.forEach((referenceValue) => {
                         const reference = new XAdES.DocumentationReference();
-                        reference.Uri = referenceValue;
+                        reference.Uri = referenceValue + "HELLO";
                         policyId.SigPolicyId.DocumentationReferences.Add(reference);
                     });
                 }
