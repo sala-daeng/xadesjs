@@ -138,11 +138,12 @@ export class SignedXml extends XmlDSigJs.SignedXml {
         const rnd = XmlDSigJs.Application.crypto.getRandomValues(new Uint8Array(6)) as Uint8Array;
         const id = XmlCore.Convert.ToHex(rnd);
 
-        this.XmlSignature.Id = `id-${id}`;
+        // this.XmlSignature.Id = `id-${id}`;
+        this.XmlSignature.Id = `xmldsig-${id}`;
         const dataObject = new XAdES.DataObject();
         dataObject.QualifyingProperties.Target = `#${this.XmlSignature.Id}`;
         // dataObject.QualifyingProperties.SignedProperties.Id = `xades-${this.XmlSignature.Id}`;
-        dataObject.QualifyingProperties.SignedProperties.Id = `xmldsig-${this.XmlSignature.Id}-signedprops`;
+        dataObject.QualifyingProperties.SignedProperties.Id = `${this.XmlSignature.Id}-signedprops`;
 
         this.properties = dataObject.QualifyingProperties;
         this.XmlSignature.ObjectList.Add(dataObject);
