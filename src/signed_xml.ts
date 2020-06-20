@@ -196,7 +196,7 @@ export class SignedXml extends XmlDSigJs.SignedXml {
             signingCertificate.IssuerSerial.X509IssuerName = cert.Issuer;
             signingCertificate.IssuerSerial.X509SerialNumber = cert.SerialNumber; // TODO: Must be Big number here
 
-            const alg = XmlDSigJs.CryptoConfig.GetHashAlgorithm("SHA-512");
+            const alg = XmlDSigJs.CryptoConfig.GetHashAlgorithm("SHA-256");
             signingCertificate.CertDigest.DigestMethod.Algorithm = alg.namespaceURI;
             signingCertificate.CertDigest.DigestValue = new Uint8Array(await cert.Thumbprint(alg.algorithm.name as any));
 
@@ -221,7 +221,7 @@ export class SignedXml extends XmlDSigJs.SignedXml {
                     policyId.SigPolicyId.DocumentationReferences = new XAdES.DocumentationReferences();
                     options.identifier.references.forEach((referenceValue) => {
                         const reference = new XAdES.DocumentationReference();
-                        reference.Uri = referenceValue + "HELLO";
+                        reference.Uri = referenceValue;
                         policyId.SigPolicyId.DocumentationReferences.Add(reference);
                     });
                 }
@@ -345,7 +345,7 @@ export class SignedXml extends XmlDSigJs.SignedXml {
             }
 
             // find certificate by Thumbprint
-            const alg = XmlDSigJs.CryptoConfig.GetHashAlgorithm("SHA-512");
+            const alg = XmlDSigJs.CryptoConfig.GetHashAlgorithm("SHA-256");
             const signingCertificate = ssp.SigningCertificate.Item(0)!;
             const b64CertDigest = XmlCore.Convert.ToBase64(signingCertificate.CertDigest.DigestValue);
             const keyInfos = this.XmlSignature.KeyInfo;
