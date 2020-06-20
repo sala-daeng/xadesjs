@@ -5,7 +5,7 @@ export let XmlXades = {
     /**
      * The XAdES XML namespace URI
      */
-    NamespaceURI: "http://uri.etsi.org/01903/v1.3.2#",
+    NamespaceURI: "http://uri.etsi.org/01903/v1.3.2xxx#",
 
     /**
      * Mandated type name for the Uri reference to the SignedProperties element
