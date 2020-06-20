@@ -50,7 +50,7 @@
   },
   "homepage": "https://github.com/PeculiarVentures/xadesjs#readme",
   "dependencies": {
-    "xml-core": "sala-daeng/xml-core",
+    "xml-core": "github:sala-daeng/xml-core",
     "xmldsigjs": "^2.0.30"
   },
   "devDependencies": {
