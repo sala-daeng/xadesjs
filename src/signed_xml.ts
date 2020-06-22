@@ -195,7 +195,11 @@ export class SignedXml extends XmlDSigJs.SignedXml {
                 throw new XmlCore.XmlError(XmlCore.XE.XML_EXCEPTION, "Signature can contain only one SigningCertificate");
             }
             const signingCertificate = new XAdES.Cert();
-            signingCertificate.IssuerSerial.X509IssuerName = cert.Issuer;
+            // signingCertificate.IssuerSerial.X509IssuerName = cert.Issuer;
+            // TEST 
+            console.log('TEST fix name')
+            signingCertificate.IssuerSerial.X509IssuerName = 'C=TH,O=Thai Digital ID Company Limited,CN=Thai Digital ID CA G3'
+            //
             signingCertificate.IssuerSerial.X509SerialNumber = cert.SerialNumber; // TODO: Must be Big number here
 
             const alg = XmlDSigJs.CryptoConfig.GetHashAlgorithm("SHA-512");
