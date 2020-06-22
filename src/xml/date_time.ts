@@ -33,14 +33,15 @@ export class XadesDateTime extends XadesObject {
     }
 
     protected OnGetXml(e: Element) {
+        if (this.Format) {
+            e.textContent = dateFormat(this.Value, this.Format);
+        } else {
+            e.textContent = this.Value.toISOString();
+        }
         // TEST
         console.log('TEST Time 2020-06-19T04:04:26.129+07:00')
         e.textContent = '2020-06-19T04:04:26.129+07:00'
-        // if (this.Format) {
-        //     e.textContent = dateFormat(this.Value, this.Format);
-        // } else {
-        //     e.textContent = this.Value.toISOString();
-        // }
+        //        
     }
 
 }
