@@ -140,12 +140,12 @@ export class SignedXml extends XmlDSigJs.SignedXml {
         // console.log('fix id to bf909aaa-c8f6-4420-bc33-e5171067fda7')
         // const id = 'bf909aaa-c8f6-4420-bc33-e5171067fda7'
 
-        // this.XmlSignature.Id = `id-${id}`;
-        this.XmlSignature.Id = `xmldsig-${id}`;
+        this.XmlSignature.Id = `id-${id}`;
+        // this.XmlSignature.Id = `xmldsig-${id}`;
         const dataObject = new XAdES.DataObject();
         dataObject.QualifyingProperties.Target = `#${this.XmlSignature.Id}`;
-        // dataObject.QualifyingProperties.SignedProperties.Id = `xades-${this.XmlSignature.Id}`;
-        dataObject.QualifyingProperties.SignedProperties.Id = `${this.XmlSignature.Id}-signedprops`;
+        dataObject.QualifyingProperties.SignedProperties.Id = `xades-${this.XmlSignature.Id}`;
+        // dataObject.QualifyingProperties.SignedProperties.Id = `${this.XmlSignature.Id}-signedprops`;
 
         this.properties = dataObject.QualifyingProperties;
         this.XmlSignature.ObjectList.Add(dataObject);
