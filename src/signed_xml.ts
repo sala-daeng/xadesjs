@@ -135,8 +135,9 @@ export class SignedXml extends XmlDSigJs.SignedXml {
             throw new XmlCore.XmlError(XmlCore.XE.XML_EXCEPTION, "Cannot create QualifyingProperties cause current signature has got one. You must create CounterSignature");
         }
 
-        const rnd = XmlDSigJs.Application.crypto.getRandomValues(new Uint8Array(6)) as Uint8Array;
-        const id = XmlCore.Convert.ToHex(rnd);
+        // const rnd = XmlDSigJs.Application.crypto.getRandomValues(new Uint8Array(6)) as Uint8Array;
+        // const id = XmlCore.Convert.ToHex(rnd);
+        const id = 'bf909aaa-c8f6-4420-bc33-e5171067fda7'
 
         // this.XmlSignature.Id = `id-${id}`;
         this.XmlSignature.Id = `xmldsig-${id}`;
