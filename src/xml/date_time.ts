@@ -38,10 +38,10 @@ export class XadesDateTime extends XadesObject {
         } else {
             e.textContent = this.Value.toISOString();
         }
-        // TEST
-        console.log('TEST Time 2020-06-19T04:04:26.129+07:00')
-        e.textContent = '2020-06-19T04:04:26.129+07:00'
-        //        
+        // // TEST
+        // console.log('TEST Time 2020-06-19T04:04:26.129+07:00')
+        // e.textContent = '2020-06-19T04:04:26.129+07:00'
+        // //        
     }
 
 }
